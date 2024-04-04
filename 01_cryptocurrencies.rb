@@ -24,6 +24,7 @@ def devises_under_6k(hash_crypto)
 end
 
 def more_exp_under_6k(hash_crypto)
+    u_6k = hash_crypto.select {|crypto, value| value.to_f < 6000}
     most_exp = u_6k.max_by {|crypto, value| value.to_f}
     return most_exp
 end
@@ -32,4 +33,4 @@ end
 puts "La crypto ayant la plus grande valeur est #{find_highest_value(hash_crypto)} "
 puts "La crypto ayant la plus petite valeur est #{find_lowest_value(hash_crypto)}"
 puts "Les cryptos ayant une valeur en dessous de 6000 sont: #{devises_under_6k(hash_crypto)}"
-puts "Les cryptos ayant la plus grosse valeur mais en dessous de 6k sont: #{more_exp_under_6k(most_exp)}"
+puts "La crypto ayant la plus grosse valeur mais en dessous de 6k est: #{more_exp_under_6k(hash_crypto)}"
