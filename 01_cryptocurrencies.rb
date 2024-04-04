@@ -29,8 +29,34 @@ def more_exp_under_6k(hash_crypto)
     return most_exp
 end
 
+def afficher_menu
+    puts "Bienvenue dans le monde des cryptos! Dis moi ce que tu veux voir :"
+    puts "1. Quelle est la crypto ayant la plus grande valeur actuellement ?"
+    puts "2. Quelle est la crypto ayant la plus petite valeur actuellement ?"
+    puts "3. Quelles sont les cryptos ayant une valeur en dessous de 6000 ?  (attention, pavé)"
+    puts "4. Dans ces cryptos là, laquelle est la plus grande ?"
+    puts "5. Entrez 5 pour sortir"
+end
 
-puts "La crypto ayant la plus grande valeur est #{find_highest_value(hash_crypto)} "
-puts "La crypto ayant la plus petite valeur est #{find_lowest_value(hash_crypto)}"
-puts "Les cryptos ayant une valeur en dessous de 6000 sont: #{devises_under_6k(hash_crypto)}"
-puts "La crypto ayant la plus grosse valeur mais en dessous de 6k est: #{more_exp_under_6k(hash_crypto)}"
+loop do 
+    afficher_menu
+    choix = gets.chomp.to_i
+
+    case choix
+    when 1 
+        puts "La crypto ayant la plus grande valeur est #{find_highest_value(hash_crypto)} "
+    when 2 
+        puts "La crypto ayant la plus petite valeur est #{find_lowest_value(hash_crypto)}"
+    when 3 
+        puts "Les cryptos ayant une valeur en dessous de 6000 sont: #{devises_under_6k(hash_crypto)}"
+    when 4 
+        puts "La crypto ayant la plus grosse valeur mais en dessous de 6k est: #{more_exp_under_6k(hash_crypto)}"
+    when 5 
+        puts "Vous nous quittez déjà ? Saluuuut"
+        break
+    else
+    puts "Choix invalide. Veuillez entrer un numéro valide."
+    end
+end
+
+
